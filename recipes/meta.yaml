@@ -1,5 +1,5 @@
 {% set name = "pyfortracc" %}
-{% set version = "1.0.0rc0" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
