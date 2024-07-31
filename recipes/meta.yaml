@@ -15,9 +15,6 @@ build:
   # noarch: python
   skip: True  # [py<35]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
-  # script: 
-  #   - ${PYTHON} -m pip install . --no-deps --no-build-isolation
-  # - ${PYTHON} -m pip install opencv-contrib-python
 
 requirements:
   host:
