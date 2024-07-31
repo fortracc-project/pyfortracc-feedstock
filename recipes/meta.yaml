@@ -1,0 +1,61 @@
+{% set name = "pyfortracc" %}
+{% set version = "1.0.0rc0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  path: ../../pyfortracc
+  #   url: https://github.com/pyfortracc-project/{{ name }}/archive/v{{ version }}.tar.gz
+  #   sha256: 99a898e7f6c3bf47a44f4ac1f977b10a6bb517f167474fc6951f510b030465d7
+
+build:
+  number: 0
+  # noarch: python
+  skip: True  # [py<35]
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  # script: 
+  #   - ${PYTHON} -m pip install . --no-deps --no-build-isolation
+  # - ${PYTHON} -m pip install opencv-contrib-python
+
+requirements:
+  host:
+    - python>=3.12
+    - setuptools
+
+  run:
+    - python
+    - rasterio
+    - geopandas
+    - opencv
+    - xarray
+    - scipy
+    - scikit-learn
+    - pyarrow
+    - pyspark
+    - netCDF4
+    - cartopy
+    - tqdm
+    - ipython
+    - ipykernel
+    - psutil
+
+
+test:
+  imports:
+    - pyfortracc
+
+about:
+  home: https://github.com/fortracc-project/pyfortracc
+  license: None
+  license_family: None
+  # license_file: https://github.com/fortracc-project/pyfortracc/blob/main/LICENSE
+  summary: "pyfortracc is a Python package for the analysis of hydrological time series."
+  doc_url: https://pyfortracc.readthedocs.io/
+  dev_url: https://github.com/fortracc-project/pyfortracc/tree/main
+
+extra:
+  recipe-maintainers:
+    - fortracc-project
+    - helvecioneto
